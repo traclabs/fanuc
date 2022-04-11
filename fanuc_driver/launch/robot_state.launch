@@ -3,6 +3,7 @@
   Wrapper launch file for the Fanuc specific robot_state node.
 -->
 <launch>
+  <remap from="joint_states" to="remapped_joint_states"/>
   <!-- IP of robot (or PC running simulation) -->
   <arg name="robot_ip" doc="IP of controller" />
 
@@ -16,7 +17,7 @@
   <!-- Load the byte-swapping version of robot_state if required -->
   <arg name="use_bswap" doc="If true, driver will byte-swap all incoming and outgoing data" />
 
-  <!-- put them on the parameter server -->
+  <!-- put them on the parameter server --> 
   <param name="robot_ip_address" type="str" value="$(arg robot_ip)" />
   <param name="J23_factor"       type="int" value="$(arg J23_factor)" />
 
